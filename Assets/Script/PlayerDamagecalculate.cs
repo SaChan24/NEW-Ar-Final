@@ -21,6 +21,7 @@ public class PlayerTriggerHandler : MonoBehaviour
         {
             //ปรับฮิล
             health.AddHealth(1);
+            
             Debug.Log("ได้หัวใจเพิ่ม!");
         }
     }
