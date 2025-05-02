@@ -32,32 +32,39 @@ public class GameManager : MonoBehaviour
 
     void StartGame()
     {
-        // ถ้าเกมเริ่มแล้ว ไม่ต้องเริ่มซ้ำ
         if (_gameStarted) return;
         _gameStarted = true;
         print("Game started!!!");
 
-        // สร้างแผนที่ถ้ายังไม่มี
-        if (!mapInstance)
+        // หา plane แรกจาก planeManager
+        ARPlane firstPlane = null;
+
+        foreach (var plane in planeManager.trackables)
         {
-            mapInstance = Instantiate(mapPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+            firstPlane = plane;
+            break;
         }
 
-        // หา SpawnPoint ภายใน map ที่สร้างขึ้น
-        Transform spawnPoint = mapInstance.transform.Find("SpawnPoint");
+        if (firstPlane == null)
+        {
+            Debug.LogWarning("ยังไม่เจอพื้น AR!");
+            return;
+        }
 
-        // สร้าง Player ที่ตำแหน่ง SpawnPoint ถ้ายังไม่มี
-        if (!playerInstance && spawnPoint != null)
+        // เสกแผนที่ตรงตำแหน่งของ plane แรก
+        mapInstance = Instantiate(mapPrefab, firstPlane.transform.position, Quaternion.identity);
+
+        // หา SpawnPoint ภายใต้ map แล้วเสก player
+        Transform spawnPoint = mapInstance.transform.Find("SpawnPoint");
+        if (spawnPoint != null)
         {
             playerInstance = Instantiate(playerPrefab, spawnPoint.position, Quaternion.identity);
         }
 
-
-
-        // ปิดการตรวจจับ plane ของ AR (เมื่อเริ่มเกมแล้วไม่ต้อง track ต่อ)
+        // ปิดการตรวจจับ plane
         planeManager.enabled = false;
 
-        // ปิดการแสดงผล plane ทั้งหมดที่ตรวจเจอไปแล้ว
+        // ปิดการแสดงผล plane ทั้งหมด
         foreach (var plane in planeManager.trackables)
         {
             var meshVisual = plane.GetComponent<ARPlaneMeshVisualizer>();

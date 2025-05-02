@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 0}
+  m_Sun: {fileID: 410087040}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2356,7 +2356,7 @@ MonoBehaviour:
   restartButton: {fileID: 535989198}
   jumpButton: {fileID: 1156131740}
   greetingText: {fileID: 2050885916}
-  player: {fileID: 0}
+  player: {fileID: -1332040970635169164, guid: a54857870cf456c4190cec9944f49789, type: 3}
   youDeadPanel: {fileID: 1717894585}
   joystickObject: {fileID: 425468450}
 --- !u!114 &2113915199
@@ -2372,7 +2372,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planeManager: {fileID: 716340778}
-  playerPrefab: {fileID: 3006646377721283660, guid: 34c34d3598038284588c90362ff4f0af, type: 3}
+  playerPrefab: {fileID: 429025039584792856, guid: a54857870cf456c4190cec9944f49789, type: 3}
   mapPrefab: {fileID: 3341399254100130785, guid: 89382cdead15e264c864d10ae994de5b, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
