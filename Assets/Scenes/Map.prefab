@@ -14020,7 +14020,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 366c1bd3ebff7d547b2ea589bd7ab7e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitsToBreak: 1
+  hitsToBreak: 3
   shakeDuration: 0.1
   shakeMagnitude: 0.01
 --- !u!1001 &3868740716778970485
@@ -21138,7 +21138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 366c1bd3ebff7d547b2ea589bd7ab7e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitsToBreak: 1
+  hitsToBreak: 3
   shakeDuration: 0.1
   shakeMagnitude: 0.01
 --- !u!4 &7285720097499705735 stripped
