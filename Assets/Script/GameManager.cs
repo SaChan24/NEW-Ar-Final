@@ -47,6 +47,7 @@ public class GameManager : MonoBehaviour
 
         if (firstPlane == null)
         {
+            _arSession.Reset();
             Debug.LogWarning("ยังไม่เจอพื้น AR!");
             return;
         }
