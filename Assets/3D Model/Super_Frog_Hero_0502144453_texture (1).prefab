@@ -104,6 +104,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 1
   jumpForce: 25
+  dashForce: 20
+  dashCooldown: 1
 --- !u!65 &464046863967557250
 BoxCollider:
   m_ObjectHideFlags: 0

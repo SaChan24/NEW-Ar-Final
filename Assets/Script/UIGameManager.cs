@@ -10,7 +10,7 @@ public class UIGameManager : MonoBehaviour
     [SerializeField] private Button startButton;     // ปุ่มเริ่มเกม
     [SerializeField] private Button restartButton;   // ปุ่มรีสตาร์ทเกม
     [SerializeField] private Button jumpButton;      // ปุ่มกระโดด
-    
+    [SerializeField] private Button dashButton;      // ปุ่ม dash
     [Header("UI Setup")]
     [SerializeField] private TMP_Text greetingText;  // ข้อความต้อนรับ
     [SerializeField] private PlayerController player; // ตัวแปรอ้างอิงไปยัง PlayerController
@@ -38,6 +38,7 @@ public class UIGameManager : MonoBehaviour
         restartButton.gameObject.SetActive(false); // ซ่อนปุ่ม restart
         joystickObject.SetActive(false);          // ซ่อน joystick
         youDeadPanel.SetActive(false);
+
     }
 
     void Update()
@@ -95,8 +96,10 @@ public class UIGameManager : MonoBehaviour
     // set movement button active
     void SetMovementButtonsActive(bool isActive)
     {
-        // กำหนดให้ปุ่ม jump แสดงหรือซ่อนตาม isActive
+        // กำหนดให้ปุ่ม แสดงหรือซ่อนตาม isActive
         jumpButton.gameObject.SetActive(isActive);
+        dashButton.gameObject.SetActive(isActive);
+        dashButton.gameObject.SetActive(isActive);
 
         // ซ่อน joystick ทุกครั้งที่เรียกใช้ (บรรทัดนี้อาจต้องเปลี่ยนถ้าจะควบคุมแบบแสดง/ซ่อนจริง ๆ)
         joystickObject.SetActive(isActive);
@@ -108,5 +111,6 @@ public class UIGameManager : MonoBehaviour
 
         // ผูกฟังก์ชัน Jump ของ player เข้ากับปุ่ม jump
         jumpButton.onClick.AddListener(player.Jump);
+        dashButton.onClick.AddListener(player.Dash);
     }
 }

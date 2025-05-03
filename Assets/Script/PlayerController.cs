@@ -12,6 +12,13 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb; // อ้างอิง Rigidbody ของ Player
     private bool isGrounded = true; // ตรวจสอบว่าอยู่บนพื้นไหม (เพื่อไม่ให้กระโดดลอย)
 
+
+    //Dash พุ่งตัว
+    private bool isDashing = false;
+    public float dashForce = 10f;     // แรงในการ Dash
+    public float dashCooldown = 1f;   // เวลา cooldown ระหว่าง dash
+    private bool canDash = true;      // เอาไว้เช็คว่า dash ได้หรือยัง
+
     private void Start()
     {
         // ค้นหา Rigidbody บนตัวเอง (Player)
@@ -55,6 +62,31 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse); // ใส่แรงพุ่งขึ้น
             isGrounded = false; // ขณะอยู่กลางอากาศจะไม่สามารถกระโดดซ้ำได้
         }
+    }
+
+    public void Dash()
+    {
+        if (!canDash || rb == null) return;
+        isDashing = true; // เริ่ม dash
+        // พุ่งไปข้างหน้าตามที่หันอยู่
+        rb.AddForce(transform.forward * dashForce, ForceMode.Impulse);
+
+        canDash = false;
+        Invoke(nameof(ResetDash), dashCooldown); // เรียกให้ dash ได้อีกครั้งหลังจาก cooldown
+        Invoke(nameof(EndDash), 0.5f); // Dash นาน 0.2 วินาที
+    }
+
+    void ResetDash()
+    {
+        canDash = true;
+    }
+    void EndDash()
+    {
+        isDashing = false;
+    }
+    public bool IsDashing()
+    {
+        return isDashing;
     }
 
     void OnCollisionEnter(Collision other)

@@ -109,6 +109,6 @@ public class GameManager : MonoBehaviour
         _arSession.Reset();
 
         // เปิดการตรวจจับ plane ใหม่
-        planeManager.enabled = true;
+        planeManager.enabled = false;
     }
 }
