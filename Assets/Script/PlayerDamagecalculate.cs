@@ -40,6 +40,13 @@ public class PlayerTriggerHandler : MonoBehaviour
 
             Destroy(other.gameObject); // ≈∫«—µ∂ÿ∑’Ë∑”¥“‡¡®
         }
+        if (other.CompareTag("Win"))
+        {
+            //win screen
+            health.youWinscreen(1);
+            Debug.Log("Win");
+
+        }
     }
 }
 

@@ -15,6 +15,7 @@ public class UIGameManager : MonoBehaviour
     [SerializeField] private TMP_Text greetingText;  // ข้อความต้อนรับ
     [SerializeField] private PlayerController player; // ตัวแปรอ้างอิงไปยัง PlayerController
     [SerializeField] private GameObject youDeadPanel;     // <- สำหรับแสดงหน้าจอ You Dead
+    [SerializeField] private GameObject youWin;
 
     [SerializeField] private GameObject joystickObject; // GameObject ที่เป็น joystick (FixedJoystick)
 
@@ -38,7 +39,8 @@ public class UIGameManager : MonoBehaviour
         restartButton.gameObject.SetActive(false); // ซ่อนปุ่ม restart
         joystickObject.SetActive(false);          // ซ่อน joystick
         youDeadPanel.SetActive(false);
-
+        youWin.SetActive(false);
+        Time.timeScale = 1f;
     }
 
     void Update()
@@ -66,6 +68,8 @@ public class UIGameManager : MonoBehaviour
         greetingText.gameObject.SetActive(false);
         joystickObject.SetActive(true);
         youDeadPanel.SetActive(false);
+        youWin.SetActive(false);
+        Time.timeScale = 1f;
     }
 
 
@@ -85,8 +89,9 @@ public class UIGameManager : MonoBehaviour
         HealthSystem HealthSystem = FindObjectOfType<HealthSystem>();
 
         HealthSystem.ResetHealth(); // เรียกใช้งาน
-
+        
         youDeadPanel.SetActive(false);
+        youWin.SetActive(false);
         Time.timeScale = 1f;
     }
 

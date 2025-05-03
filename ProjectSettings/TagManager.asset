@@ -10,6 +10,7 @@ TagManager:
   - BreakablePillar
   - ShootArea
   - Bullet
+  - Win
   layers:
   - Default
   - TransparentFX

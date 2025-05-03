@@ -12,6 +12,7 @@ public class HealthSystem : MonoBehaviour
 
     [SerializeField] private UIGameManager uiGameManager; // <- ลากจาก Inspector
     [SerializeField] private GameObject youDeadPanel;     // <- สำหรับแสดงหน้าจอ You Dead
+    [SerializeField] private GameObject youWin;
 
 
     void Start()
@@ -74,6 +75,7 @@ public class HealthSystem : MonoBehaviour
         {   
             Debug.Log("Player Dead");
             if (youDeadPanel != null)
+               
                 youDeadPanel.SetActive(true); // แสดงหน้า You Dead
            
 
@@ -83,6 +85,10 @@ public class HealthSystem : MonoBehaviour
             Time.timeScale = 0f; // ❗ หยุดเวลาเกมทั้งหมด
         }
     }
-    
 
+    public void youWinscreen(int amount)
+    {
+        youWin.SetActive(true);
+        Time.timeScale = 0f;
+    }
 }
