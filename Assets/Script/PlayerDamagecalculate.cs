@@ -15,6 +15,9 @@ public class PlayerTriggerHandler : MonoBehaviour
             //ปรับดามเมจ
             health.TakeDamage(1);
             Debug.Log("อันตราย! หัวใจลด");
+
+
+            Destroy(other.gameObject); // ลบวัตถุที่ทำดาเมจ
         }
         // ถ้าโดน heal
         else if (other.CompareTag("Heal"))
@@ -23,6 +26,9 @@ public class PlayerTriggerHandler : MonoBehaviour
             health.AddHealth(1);
             
             Debug.Log("ได้หัวใจเพิ่ม!");
+
+
+            Destroy(other.gameObject); // ลบวัตถุที่ทำดาเมจ
         }
     }
 }

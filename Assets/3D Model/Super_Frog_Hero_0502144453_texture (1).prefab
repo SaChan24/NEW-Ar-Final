@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 17bf9d8cb48e6de46a929966eae523c4, type: 3}
       propertyPath: m_LocalScale.x
-      value: 15
+      value: 7.44285
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 17bf9d8cb48e6de46a929966eae523c4, type: 3}
       propertyPath: m_LocalScale.y
-      value: 15
+      value: 7.44285
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 17bf9d8cb48e6de46a929966eae523c4, type: 3}
       propertyPath: m_LocalScale.z
-      value: 15
+      value: 7.44285
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 17bf9d8cb48e6de46a929966eae523c4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -103,7 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
-  jumpForce: 10
+  jumpForce: 25
 --- !u!65 &464046863967557250
 BoxCollider:
   m_ObjectHideFlags: 0
