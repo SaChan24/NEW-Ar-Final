@@ -26,6 +26,16 @@ public class PlayerTriggerHandler : MonoBehaviour
             health.AddHealth(1);
             
             Debug.Log("ได้หัวใจเพิ่ม!");
+            
+
+            Destroy(other.gameObject); // ลบวัตถุที่ทำดาเมจ
+        }
+        // ถ้าโดน damage จาก Bullet
+        if (other.CompareTag("Bullet"))
+        {
+            //ปรับดามเมจ
+            health.TakeDamage(1);
+            Debug.Log("อันตราย! หัวใจลด");
 
 
             Destroy(other.gameObject); // ลบวัตถุที่ทำดาเมจ

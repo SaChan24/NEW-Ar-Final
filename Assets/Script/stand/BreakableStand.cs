@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class BreakablePillar : MonoBehaviour
+public class BreakableStand : MonoBehaviour
 {
     public int hitsToBreak = 3; // จำนวนครั้งที่ต้องชนถึงจะพัง
     private int currentHits = 0;
@@ -31,14 +31,12 @@ public class BreakablePillar : MonoBehaviour
             // เริ่มสั่น
             StartCoroutine(Shake());
 
-
-
-
-            if (currentHits >= hitsToBreak)
-            {
-                Destroy(gameObject); // ทำลายเสา
-                Debug.Log("เสาพังแล้ว!");
-            }
+                if (currentHits >= hitsToBreak)
+                {
+                    Debug.Log("เสาพังแล้ว!");
+                    PillarManager.Instance.PillarDestroyed(); // แจ้ง PillarManager
+                    Destroy(gameObject);
+                }
         }
     }
 

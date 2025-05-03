@@ -8,6 +8,8 @@ TagManager:
   - Ground
   - Heal
   - BreakablePillar
+  - ShootArea
+  - Bullet
   layers:
   - Default
   - TransparentFX
