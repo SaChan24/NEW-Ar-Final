@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
 
     void StartGame()
     {
+        Time.timeScale = 1f;
         if (_gameStarted) return;
         _gameStarted = true;
         print("Game started!!!");
