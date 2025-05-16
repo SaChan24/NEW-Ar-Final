@@ -31,11 +31,21 @@ public class PlayerTriggerHandler : MonoBehaviour
             Destroy(other.gameObject); // ลบวัตถุที่ทำดาเมจ
         }
         // ถ้าโดน damage จาก Bullet
-        if (other.CompareTag("Bullet"))
+        if (other.CompareTag("Bullet")) 
         {
             //ปรับดามเมจ
             health.TakeDamage(1);
             Debug.Log("อันตราย! หัวใจลด");
+
+
+            Destroy(other.gameObject); // ลบวัตถุที่ทำดาเมจ
+        }
+        //ดาเมจตกแมพ
+        if (other.CompareTag("DeadFloor"))
+        {
+            //ปรับดามเมจ
+            health.TakeDamage(3);
+            Debug.Log("ตกแมพตาย");
 
 
             Destroy(other.gameObject); // ลบวัตถุที่ทำดาเมจ
